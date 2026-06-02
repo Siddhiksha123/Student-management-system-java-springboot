@@ -71,7 +71,7 @@ public class StudentServiceImpl implements StudentService {
                     student.setName((String) value);
                     break;
                 case "email":
-                    student.setEmail((String) value);
+                    student.setMy_email((String) value);
                     break;
                 default:
                     throw new IllegalArgumentException("Field is not supported");

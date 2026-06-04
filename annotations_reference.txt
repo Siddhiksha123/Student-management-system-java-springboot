@@ -1,0 +1,27 @@
+Spring Boot Annotations Reference Guide
+=======================================
+
+This file contains a list of commonly used Spring Boot and Java annotations, along with their definitions and use cases.
+
+@RequestBody
+- Purpose: Maps the incoming HTTP request body (usually JSON) to a Java object.
+- Usage: Placed in the method parameters of a controller (often with POST or PUT requests). It tells Spring to convert the incoming JSON into the specified Java class.
+
+@Valid
+- Purpose: Triggers validation on a Java object before the method executes.
+- Usage: Placed next to @RequestBody. It checks the fields of the object against validation annotations (like @NotNull, @NotBlank) defined inside the DTO class. If validation fails, it throws an error before running the method.
+
+@RestController
+- Purpose: Marks a class as a RESTful web controller. It is a convenience annotation that combines @Controller and @ResponseBody, meaning the returned data is written directly to the HTTP response as JSON/XML, rather than rendering a HTML page.
+
+@RequestMapping
+- Purpose: Used to map web requests onto specific handler classes and/or handler methods. For example, @RequestMapping("/students") at the class level means all endpoints in that controller start with "/students".
+
+@GetMapping / @PostMapping / @PutMapping / @DeleteMapping / @PatchMapping
+- Purpose: These are shortcut annotations for @RequestMapping with specific HTTP methods (GET, POST, PUT, DELETE, PATCH).
+
+@PathVariable
+- Purpose: Extracts values from the URI path. For example, for an endpoint "/students/{id}", you use @PathVariable Long id to grab the "id" from the URL.
+
+@RequiredArgsConstructor (from Lombok)
+- Purpose: Automatically generates a constructor that takes one argument for every final field. In Spring Boot, this is a very clean way to do Constructor Dependency Injection (e.g., injecting your StudentService into your StudentController) without writing boilerplate constructors.
